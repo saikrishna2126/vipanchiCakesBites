@@ -1,1 +1,45 @@
-New folder\frontend\node_modules
+New folder/frontend/node_modules
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+New folder/frontend/dist
+New folder/frontend/.angular
+New folder/frontend/tmp
+New folder/frontend/out-tsc
+New folder/frontend/ Only exists if Bazel was run
+New folder/frontend/bazel-outNew folder/frontend/
+New folder/frontend/ dependencies
+New folder/frontend/node_modules
+New folder/frontend/ profiling files
+New folder/frontend/chrome-profiler-events*.json
+New folder/frontend/speed-measure-plugin*.json
+New folder/frontend/ IDEs and editors
+New folder/frontend/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db

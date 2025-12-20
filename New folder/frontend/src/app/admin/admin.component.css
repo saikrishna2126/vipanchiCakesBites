@@ -1,0 +1,250 @@
+/* Vipanchi Bakery Admin - Master Stylesheet 
+   Fixes: Header alignment, Logo scaling, and 2-column Grid layout.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* --- Bakery Color Accents --- */
+:root {
+  --burgundy: #800020;
+  --gold: #C5A059;
+  --cream: #FFF8F0;
+  --chocolate: #3D2B1F;
+  --taupe: #8D7B6D;
+  --tan: #f5ede4;
+}
+
+.admin-container {
+  background: var(--cream);
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cream-bg);
+  color: var(--chocolate);
+  line-height: 1.6;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header - Fixed & Professional */
+.admin-header {
+  background: #fff;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo-section {
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.title-section {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.title-section h1 {
+  color: var(--chocolate);
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.tagline {
+  color: var(--taupe);
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+/* Navigation */
+.header-nav {
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--chocolate);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.nav-link.active {
+  color: var(--chocolate);
+  border-bottom: 2px solid var(--chocolate);
+  background: none;
+}
+
+.nav-link:hover {
+  color: var(--burgundy);
+  border-bottom: 2px solid var(--burgundy);
+}
+
+/* Main Content Grid - The Fix for "Plane" and "Broken" pages */
+.admin-main {
+  flex: 1;
+  max-width: 1250px;
+  margin: 2rem auto;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Enforces 2 columns */
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Form Sections / Cards */
+.form-section {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(197, 160, 89, 0.08);
+  border: 1.5px solid #f5e6c8;
+}
+
+.form-section h2 {
+  color: var(--chocolate);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Inputs */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  border: 1.5px solid #f5e6c8;
+  background: #fff;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--gold);
+  background: #fff;
+}
+
+/* Buttons - Specific Order vs Expense Logic */
+.btn {
+  background: linear-gradient(90deg, var(--burgundy) 60%, var(--gold) 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.10);
+  border-radius: 8px;
+}
+
+/* Targeting the specific buttons in the grid */
+.form-section:nth-child(1) .btn {
+  background-color: var(--order-green);
+}
+
+.form-section:nth-child(2) .btn {
+  background-color: var(--expense-sienna);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--burgundy) 100%);
+  color: #fff;
+}
+
+/* Transaction List Styling */
+.transaction-list {
+  margin-top: 1.5rem;
+}
+
+.transaction-item {
+  background: #fdfdfd;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eee;
+}
+
+/* Footer */
+.admin-footer {
+  background: #fff;
+  color: var(--taupe);
+  border-top: 2px solid var(--gold);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Links in Footer */
+.footer-link {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
+
+.footer-link:hover {
+  color: var(--gold);
+}
+
+/* Responsive Fix */
+@media (max-width: 950px) {
+  .content-grid {
+    grid-template-columns: 1fr; /* Stacks columns on tablet/mobile */
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
