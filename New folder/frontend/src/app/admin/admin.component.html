@@ -1,154 +1,74 @@
 <div class="admin-container">
-  <header class="admin-header">
+
+  <!-- HEADER -->
+  <!-- <header class="admin-header">
     <div class="header-content">
-      <div class="logo-section">
-        <img src="assets/logo.png" alt="Vipanchi Cakes & Bites Logo" class="logo" />
-      </div>
+      <img src="assets/logo.png" class="logo" />
+
       <div class="title-section">
         <h1>Vipanchi Bakery Admin</h1>
         <p class="tagline">Manage cash inflows (orders) and outflows (expenses)</p>
       </div>
+
       <nav class="header-nav">
-        <a href="#" class="nav-link active">Dashboard</a>
-        <a href="#expenses" class="nav-link">Expenses</a>
-        <a href="#orders" class="nav-link">Orders</a>
+        <a class="nav-link active">Dashboard</a>
+        <a class="nav-link">Expenses</a>
+        <a class="nav-link order-btn">Orders</a>
       </nav>
     </div>
-  </header>
+  </header> -->
 
+  <!-- MAIN -->
   <main class="admin-main">
     <div class="content-grid">
-      <section id="orders" class="form-section">
-        <div class="section-header">
-          <h2>📥 Orders (Cash Inflows)</h2>
-          <p class="section-description">Record customer orders and revenue</p>
-        </div>
 
-        <form (ngSubmit)="createOrder()" class="form" #orderForm="ngForm">
-          <div class="form-group">
-            <label for="order-item">Item Name *</label>
-            <input 
-              id="order-item" 
-              [(ngModel)]="newOrder.item" 
-              name="item" 
-              placeholder="e.g., Croissants, Bread, Cake" 
-              required 
-              #itemInput="ngModel"
-            />
-            <span class="validation-text" *ngIf="itemInput.invalid && itemInput.touched">Item name is required</span>
-          </div>
+      <!-- ORDERS -->
+      <section class="form-section">
+        <h2>Orders (Cash Inflows)</h2>
 
-          <div class="form-group">
-            <label for="order-amount">Amount *</label>
-            <input 
-              id="order-amount" 
-              [(ngModel)]="newOrder.amount" 
-              name="amount" 
-              type="number" 
-              step="0.01" 
-              placeholder="0.00" 
-              required 
-              #amountInput="ngModel"
-            />
-            <span class="validation-text" *ngIf="amountInput.invalid && amountInput.touched">Amount must be greater than 0</span>
-          </div>
+        <form #orderForm="ngForm" (ngSubmit)="createOrder(orderForm)">
+          <label>Item Name*</label>
+          <input type="text" name="item" ngModel required />
 
-          <div class="form-group">
-            <label for="order-description">Description</label>
-            <input 
-              id="order-description" 
-              [(ngModel)]="newOrder.description" 
-              name="description" 
-              placeholder="Optional notes (e.g., quantity, customer name)" 
-            />
-          </div>
+          <label>Amount*</label>
+          <input type="number" name="amount" ngModel required />
 
-          <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">+ Add Order</button>
+          <label>Description</label>
+          <input type="text" name="desc" ngModel />
+
+          <button class="btn btn-order" [disabled]="orderForm.invalid">
+            + ADD ORDER
+          </button>
         </form>
-
-        <div class="list-header">
-          <h3>Recent Orders</h3>
-        </div>
-        <ul class="transaction-list">
-          <li *ngFor="let o of orders" class="transaction-item">
-            <div class="transaction-info">
-              <strong>{{ o.item }}</strong>
-              <span class="amount">{{ o.amount | currency }}</span>
-              <em *ngIf="o.description">{{ o.description }}</em>
-            </div>
-            <button type="button" class="btn-delete" (click)="deleteOrder(o.id)">Delete</button>
-          </li>
-          <li *ngIf="orders.length === 0" class="empty-state">No orders yet. Add one above!</li>
-        </ul>
       </section>
 
-      <section id="expenses" class="form-section">
-        <div class="section-header">
-          <h2>📤 Expenses (Cash Outflows)</h2>
-          <p class="section-description">Record business expenses and costs</p>
-        </div>
+      <!-- EXPENSES -->
+      <section class="form-section">
+        <h2>Expenses (Cash Outflows)</h2>
 
-        <form (ngSubmit)="createExpense()" class="form" #expenseForm="ngForm">
-          <div class="form-group">
-            <label for="expense-item">Item / Reason *</label>
-            <input 
-              id="expense-item" 
-              [(ngModel)]="newExpense.item" 
-              name="item" 
-              placeholder="e.g., Ingredients, Rent, Utilities" 
-              required 
-              #expenseItemInput="ngModel"
-            />
-            <span class="validation-text" *ngIf="expenseItemInput.invalid && expenseItemInput.touched">Item name is required</span>
-          </div>
+        <form #expenseForm="ngForm" (ngSubmit)="createExpense(expenseForm)">
+          <label>Item Name*</label>
+          <input type="text" name="item" ngModel required />
 
-          <div class="form-group">
-            <label for="expense-amount">Amount *</label>
-            <input 
-              id="expense-amount" 
-              [(ngModel)]="newExpense.amount" 
-              name="amount" 
-              type="number" 
-              step="0.01" 
-              placeholder="0.00" 
-              required 
-              #expenseAmountInput="ngModel"
-            />
-            <span class="validation-text" *ngIf="expenseAmountInput.invalid && expenseAmountInput.touched">Amount must be greater than 0</span>
-          </div>
+          <label>Amount*</label>
+          <input type="number" name="amount" ngModel required />
 
-          <div class="form-group">
-            <label for="expense-description">Description</label>
-            <input 
-              id="expense-description" 
-              [(ngModel)]="newExpense.description" 
-              name="description" 
-              placeholder="Optional notes (e.g., vendor, invoice number)" 
-            />
-          </div>
+          <label>Description</label>
+          <input type="text" name="desc" ngModel />
 
-          <button type="submit" class="btn btn-primary" [disabled]="expenseForm.invalid">+ Add Expense</button>
+          <button class="btn btn-expense" [disabled]="expenseForm.invalid">
+            + ADD EXPENSE
+          </button>
         </form>
-
-        <div class="list-header">
-          <h3>Recent Expenses</h3>
-        </div>
-        <ul class="transaction-list">
-          <li *ngFor="let e of expenses" class="transaction-item">
-            <div class="transaction-info">
-              <strong>{{ e.item }}</strong>
-              <span class="amount">{{ e.amount | currency }}</span>
-              <em *ngIf="e.description">{{ e.description }}</em>
-            </div>
-            <button type="button" class="btn-delete" (click)="deleteExpense(e.id)">Delete</button>
-          </li>
-          <li *ngIf="expenses.length === 0" class="empty-state">No expenses yet. Add one above!</li>
-        </ul>
       </section>
+
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="admin-footer">
-    <p>&copy; 2025 Vipanchi Bakery. All rights reserved. | <a href="#" class="footer-link">Support</a></p>
+    © 2023 Vipanchi Bakery. All rights reserved.
+    <span class="support">Support</span>
   </footer>
+
 </div>

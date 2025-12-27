@@ -1,0 +1,141 @@
+/* HEADER */
+.admin-header {
+    background: #fff;
+    border-bottom: 4px solid var(--gold);
+    padding: 1.3rem 2rem;
+    /* Reduced padding */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 95px;
+    /* Reduced from 100px */
+    width: auto;
+    object-fit: contain;
+}
+
+
+.title-section {
+    flex: 1;
+    text-align: left;
+    margin: 0 2rem;
+}
+
+.title-section h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--burgundy);
+    margin: 0;
+}
+
+.tagline {
+
+    font-size: 0.85rem;
+    color: var(--burgundy);
+}
+
+.header-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    color: var(--burgundy);
+    font-weight: 500 bold;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link.active {
+    border-color: var(--gold);
+}
+
+/* Hamburger Menu Button (Hidden by default) */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--burgundy);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.order-btn {
+    background: var(--burgundy);
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .header-content {
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .header-nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1rem);
+        /* Account for padding-bottom of admin-header */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        /* Fill remaining screen height */
+        /* Minimum height ensures it covers reasonable space */
+        background-color: #fff;
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0;
+        border-bottom: 2px solid var(--gold);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-nav.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+        width: calc(100% - 4rem);
+        margin: 0.5rem auto;
+    }
+
+    .title-section {
+        margin: 0 1rem;
+    }
+
+    .title-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .tagline {
+        display: none;
+        /* Optional: hide tagline on very small screens if crowded */
+    }
+}

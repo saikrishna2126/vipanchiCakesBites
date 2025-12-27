@@ -1,0 +1,47 @@
+<div class="hero-section">
+    <div class="overlay">
+        <div class="content">
+            <h2 class="cursive-text">Handmade and Crafts ...</h2>
+            <h1 class="main-text">
+                Handcrafted Treats Made Fresh<br>
+                with<br>
+                Love & Authentic Ingredients
+            </h1>
+            <div class="button-group">
+                <button class="btn btn-primary">Explore More</button>
+                <button class="btn btn-secondary">Know More</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="creations-section">
+    <div class="section-header">
+        <h3 class="cursive-subtitle">All Our Creations</h3>
+        <h2 class="section-title">Indulge in Entire Selection of<br>Goodness.</h2>
+        <p class="section-description">
+            It is a long established fact that a reader will be distracted by the readable content of a page when
+            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
+            letters.
+        </p>
+    </div>
+
+    <div class="creations-grid" (scroll)="onScroll($event)">
+        <div class="creation-item" *ngFor="let item of creations">
+            <div class="image-wrapper">
+                <img [src]="item.image" [alt]="item.name">
+            </div>
+            <h4>{{ item.name }}</h4>
+        </div>
+    </div>
+
+    <!-- Dots Container -->
+    <div class="scroll-dots">
+        <span *ngFor="let item of creations; let i = index" class="dot" [class.active]="i === activeIndex"
+            (click)="scrollTo(i)"></span>
+    </div>
+
+    <div class="view-all-container">
+        <button class="btn btn-primary view-all-btn">View All</button>
+    </div>
+</div>

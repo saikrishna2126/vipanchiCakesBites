@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FinanceService } from '../services/finance.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,7 @@ export class AdminComponent implements OnInit {
   newOrder: any = { item: '', amount: null, description: '' };
   newExpense: any = { item: '', amount: null, description: '' };
 
-  constructor(private svc: FinanceService) {}
+  constructor(private svc: FinanceService) { }
 
   ngOnInit() {
     this.refresh();
@@ -24,13 +25,18 @@ export class AdminComponent implements OnInit {
     this.expenses = await this.svc.getExpenses();
   }
 
-  async createOrder() {
+  async createOrder(form: NgForm) {
+    this.newOrder = form.value;
+    console.log(this.newOrder);
     await this.svc.createOrder(this.newOrder);
+
     this.newOrder = { item: '', amount: null, description: '' };
+
     this.refresh();
   }
 
-  async createExpense() {
+  async createExpense(form: NgForm) {
+    this.newExpense = form.value;
     await this.svc.createExpense(this.newExpense);
     this.newExpense = { item: '', amount: null, description: '' };
     this.refresh();

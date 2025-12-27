@@ -1,0 +1,22 @@
+<!-- HEADER -->
+<header class="admin-header">
+    <div class="header-content">
+        <img src="assets/logo.png" class="logo" />
+
+        <div class="title-section">
+            <h1>Vipanchi Cakes & Bites</h1>
+            <p class="tagline">The Rhythm of Authentic Baking</p>
+        </div>
+
+        <button class="hamburger-menu" (click)="toggleMenu()">
+            <i class="fa-solid" [ngClass]="isMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+
+        <nav class="header-nav" [class.active]="isMenuOpen">
+            <a class="nav-link active">Home</a>
+            <a class="nav-link">Menu</a>
+            <a class="nav-link">Artisan Cakes</a>
+            <a class="nav-link order-btn"><i class="fa-solid fa-cart-shopping" style="padding: 0 6px;"></i>Cart</a>
+        </nav>
+    </div>
+</header>
