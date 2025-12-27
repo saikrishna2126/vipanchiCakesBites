@@ -157,6 +157,8 @@
     max-width: 1200px;
     margin-bottom: 30px;
     padding-bottom: 20px;
+    padding-top: 20px;
+    /* Added to prevent hover clip */
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
