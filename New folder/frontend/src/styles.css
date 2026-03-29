@@ -1,5 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: #fff8f5;
+    color: #1f1b17;
+    overflow-x: hidden;
+    zoom: 0.75;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.glass-nav {
+    background: rgba(255, 248, 245, 0.7);
+    backdrop-filter: blur(20px);
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.bg-glaze {
+    background: linear-gradient(135deg, #8d4b00 0%, #b15f00 100%);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,12 +46,6 @@
 }
 
 /* Basic styles for the Angular scaffold admin */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    /* margin: 16px; Removed to fix overflow */
-    overflow-x: hidden;
-    /* Ensure no horizontal scroll */
-}
 
 form input {
     display: block;

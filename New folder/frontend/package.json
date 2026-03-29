@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:uat": "npm run build && aws s3 sync dist/vipanchi-bakery-frontend s3://vipanchi-uat --delete",
+    "deploy:prod": "npm run build && aws s3 sync dist/vipanchi-bakery-frontend s3://vipanchi --delete"
   },
   "dependencies": {
     "@angular/animations": "^16.0.0",
@@ -28,6 +30,9 @@
     "@angular/cli": "^16.0.0",
     "@angular/compiler-cli": "^16.0.0",
     "angular-cli-ghpages": "^2.0.3",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
     "typescript": "^5.1.0"
   }
 }
