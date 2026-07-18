@@ -1,0 +1,189 @@
+<main *ngIf="!isSubmitted()"
+  class="min-h-screen pt-32 pb-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start font-body">
+  <!-- Left Column: Editorial & Contact Info -->
+  <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-32 lg:flex lg:flex-col lg:justify-center">
+    <div class="space-y-4">
+      <span
+        class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-widest">Connect
+        with us</span>
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.1] font-headline">The Art
+        of <span class="text-primary italic font-light">Celebration</span></h1>
+      <p class="text-lg text-on-surface-variant max-w-md leading-relaxed">From intimate sunset soirées to grand garden
+        weddings, we bake memories that taste like sun-drenched afternoons and warm hearths.</p>
+    </div>
+
+    <!-- Contact Section Integrated -->
+    <div class="bg-surface-container rounded-2xl p-6 space-y-4 py-12">
+      <h3 class="text-sm font-bold uppercase tracking-widest text-primary font-headline">Get In Touch</h3>
+      <div class="space-y-6">
+        <a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors group"
+          href="mailto:{{ EMAIL_ADDRESS }}">
+          <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+          <span class="font-medium">{{ EMAIL_ADDRESS }}</span>
+        </a>
+        <a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors group"
+          href="tel:{{ MOBILE_NUMBER }}">
+          <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">call</span>
+          <span class="font-medium">{{ MOBILE_NUMBER }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Enquiry Form -->
+  <div class="lg:col-span-7 bg-surface-container-low rounded-xl p-1 md:p-2">
+    <div class="bg-surface-container-lowest rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-outline-variant/10">
+      <div class="mb-10 flex items-center justify-between">
+        <div>
+          <h2 class="text-3xl font-bold text-on-surface tracking-tight font-headline">Send an Enquiry</h2>
+          <p class="text-on-surface-variant mt-1">Let's craft your custom bakery experience.</p>
+        </div>
+        <div class="h-16 w-16 bg-primary-fixed rounded-2xl flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-3xl">bakery_dining</span>
+        </div>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #enquiryForm="ngForm" class="space-y-6">
+        <div class="space-y-2">
+          <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">Full
+            Name</label>
+          <input type="text" placeholder="Your Name" [(ngModel)]="enquiryData.fullName" name="fullName" required
+            #nameCtrl="ngModel" minlength="2" maxlength="100" pattern="^[a-zA-Z\s\'-]+$"
+            class="w-full px-6 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary-fixed transition-all placeholder:text-outline-variant/50 outline-none"
+            [ngClass]="{'ring-2 ring-error': nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)}">
+          <div *ngIf="nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)" class="text-error text-xs ml-2 mt-1">
+            <span *ngIf="nameCtrl.errors?.['required']">Name is required.</span>
+            <span *ngIf="nameCtrl.errors?.['minlength']">Name must be at least 2 characters.</span>
+            <span *ngIf="nameCtrl.errors?.['pattern']">Please enter a valid name.</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">Email
+              Address</label>
+            <input type="email" placeholder="hello@example.com" [(ngModel)]="enquiryData.email" name="email" required
+              #emailCtrl="ngModel" email
+              class="w-full px-6 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary-fixed transition-all placeholder:text-outline-variant/50 outline-none"
+              [ngClass]="{'ring-2 ring-error': emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)}">
+            <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)"
+              class="text-error text-xs ml-2 mt-1">
+              <span *ngIf="emailCtrl.errors?.['required']">Email is required.</span>
+              <span *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">Mobile
+              Number</label>
+            <input type="tel" placeholder="+91 00000 00000" [(ngModel)]="enquiryData.mobileNumber" name="mobileNumber"
+              required #mobileCtrl="ngModel" pattern="^\+?[1-9]\d{1,14}$"
+              class="w-full px-4 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary-fixed transition-all placeholder:text-outline-variant/50 outline-none"
+              [ngClass]="{'ring-2 ring-error': mobileCtrl.invalid && (mobileCtrl.dirty || mobileCtrl.touched)}">
+            <div *ngIf="mobileCtrl.invalid && (mobileCtrl.dirty || mobileCtrl.touched)"
+              class="text-error text-xs ml-2 mt-1">
+              <span *ngIf="mobileCtrl.errors?.['required']">Mobile number is required.</span>
+              <span *ngIf="mobileCtrl.errors?.['pattern']">Please enter a valid mobile number.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">How can we
+            help?</label>
+          <textarea rows="6" placeholder="Tell us about the mood, flavor profiles, or specific dietary needs..."
+            [(ngModel)]="enquiryData.message" name="message" required #messageCtrl="ngModel" minlength="10"
+            maxlength="1000"
+            class="w-full px-6 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary-fixed transition-all placeholder:text-outline-variant/50 outline-none resize-none"
+            [ngClass]="{'ring-2 ring-error': messageCtrl.invalid && (messageCtrl.dirty || messageCtrl.touched)}"></textarea>
+          <div *ngIf="messageCtrl.invalid && (messageCtrl.dirty || messageCtrl.touched)"
+            class="text-error text-xs ml-2 mt-1">
+            <span *ngIf="messageCtrl.errors?.['required']">Message is required.</span>
+            <span *ngIf="messageCtrl.errors?.['minlength']">Message must be at least 10 characters.</span>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <button type="submit" [disabled]="isSubmitting() || enquiryForm.invalid"
+            class="w-full terracotta-gradient text-on-primary font-bold py-5 rounded-xl text-lg flex items-center justify-center gap-3 sun-glow hover:scale-[1.01] active:scale-95 transition-all group disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100">
+            {{ isSubmitting() ? 'Sending...' : 'Send Enquiry' }}
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+          </button>
+        </div>
+        <p class="text-center text-[10px] text-outline font-medium uppercase tracking-widest">Typically responds within
+          24 sunlit hours</p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- Thank You Landing Page -->
+<main *ngIf="isSubmitted()"
+  class="min-h-[85vh] pt-32 pb-24 px-6 flex items-center justify-center font-body bg-background">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- Content Section -->
+    <div class="lg:col-span-6 space-y-8 animate-fade-in">
+      <div class="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full w-fit">
+        <span class="material-symbols-outlined text-sm">check_circle</span>
+        <span class="text-xs font-bold uppercase tracking-widest">Enquiry Sent Successfully</span>
+      </div>
+
+      <div class="space-y-4">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1] font-headline">
+          Thank You <br />
+          <span class="text-primary italic font-light">for Reaching Out</span>
+        </h1>
+        <p class="text-lg md:text-xl text-on-surface-variant max-w-lg leading-relaxed">
+          Your message has reached our ovens. We'll be in touch within 24 hours to discuss your bakery needs.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-4 pt-4">
+        <button routerLink="/"
+          class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:opacity-90 active:scale-95 transition-all">
+          Back to Home
+        </button>
+        <button routerLink="/menu"
+          class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">
+          Our Menu
+        </button>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="grid grid-cols-2 gap-8 pt-12 border-t border-outline-variant/20">
+        <div>
+          <h4 class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Location</h4>
+          <p class="text-sm text-on-surface-variant">Artisan District, <br />Vipanchi Plaza</p>
+        </div>
+        <div>
+          <h4 class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Follow Us</h4>
+          <p class="text-sm text-on-surface-variant">@vipanchibakes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Illustration Section -->
+    <div class="lg:col-span-6 relative flex justify-center lg:justify-end animate-scale-up">
+      <div
+        class="relative w-full max-w-xl aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-surface-container-lowest transform rotate-2">
+        <img src="assets/thank_you_bakery.png" alt="Handcrafted Bakery Scene" class="w-full h-full object-cover">
+
+        <!-- Badge Overlay -->
+        <div
+          class="absolute bottom-6 left-6 bg-secondary-container/90 backdrop-blur-md p-4 rounded-2xl flex items-center gap-3 shadow-lg border border-white/20">
+          <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">bakery_dining</span>
+          </div>
+          <div>
+            <h5 class="text-[10px] font-bold uppercase tracking-tight text-on-secondary-container">HAND-CRAFTED</h5>
+            <p class="text-[10px] text-on-secondary-container opacity-70">Baked fresh daily</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Ornaments -->
+      <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute top-10 -left-10 w-48 h-48 bg-tertiary/10 rounded-full blur-3xl -z-10"></div>
+    </div>
+  </div>
+</main>
+>

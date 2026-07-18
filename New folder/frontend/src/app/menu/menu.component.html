@@ -1,0 +1,424 @@
+<main class="pt-24 min-h-screen">
+  <!-- Hero Title Section -->
+  <header class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+    <div class="max-w-3xl">
+      <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Our
+        Collections</span>
+      <h1 class="text-5xl md:text-7xl font-display font-extrabold text-on-surface leading-[1.1] mb-6">
+        Freshly Baked <br>
+        <span class="italic font-light text-secondary">Every Morning.</span>
+      </h1>
+      <p class="text-lg text-on-surface-variant max-w-xl leading-relaxed">
+        From our signature milk-soaked sponges to our intense Belgian chocolate brownies, explore the curated categories
+        of our artisanal kitchen.
+      </p>
+    </div>
+  </header>
+
+  <!-- Category: Signature Cupcakes -->
+  <section id="cupcakes" class="mb-24">
+    <div class="max-w-7xl mx-auto px-6 mb-10 flex justify-between items-end">
+      <div>
+        <h2 class="text-3xl font-display font-bold text-on-surface">Signature Cupcakes</h2>
+        <p class="text-on-surface-variant mt-1">Light as air, topped with silky clouds of flavor.</p>
+      </div>
+      <!-- Scroll Buttons -->
+      <div class="flex gap-2">
+        <button (click)="scroll(cupcakesContainer, -380)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_left</span>
+        </button>
+        <button (click)="scroll(cupcakesContainer, 380)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <div #cupcakesContainer class="max-w-7xl mx-auto px-6 carousel-container hide-scrollbar flex overflow-x-auto gap-8 snap-x">
+      <!-- Cupcake 1 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Vanilla Classic cupcake"
+            [src]="contentService.cupcakeImages[0].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[0].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Our timeless vanilla bean sponge with smooth vanilla
+            buttercream.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹40</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 2 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Vanilla with Biscoff cupcake"
+            [src]="contentService.cupcakeImages[1].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[1].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Classic vanilla cupcake topped with creamy Biscoff
+            spread.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹60</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 3 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Vanilla with Strawberry cupcake"
+            [src]="contentService.cupcakeImages[2].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[2].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Vanilla cupcake featuring fresh strawberry compote.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹60</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 4 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Vanilla with Chocolate cupcake"
+            [src]="contentService.cupcakeImages[3].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[3].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Vanilla sponge beautifully paired with rich chocolate
+            frosting.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹50</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 5 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Vanilla with Caramel cupcake"
+            [src]="contentService.cupcakeImages[4].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[4].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Vanilla base drizzled with golden caramel.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹60</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 6 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Chocolate Classic cupcake"
+            [src]="contentService.cupcakeImages[5].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[5].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Rich and moist chocolate sponge with a creamy chocolate
+            topping.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹40</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 7 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Chocolate with Biscoff cupcake"
+            [src]="contentService.cupcakeImages[6].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[6].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Decadent chocolate paired perfectly with sweet Biscoff.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹60</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 8 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Chocolate with Nutella cupcake"
+            [src]="contentService.cupcakeImages[7].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[7].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Chocolate cupcake generously crowned with Nutella.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹60</span>
+          </div>
+        </div>
+      </div>
+      <!-- Cupcake 9 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Carrot Cupcake"
+            [src]="contentService.cupcakeImages[8].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.cupcakeImages[8].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Moist carrot sponge topped with signature cream cheese
+            frosting.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹40</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category: Fresh Muffins -->
+  <section id="muffins" class="mb-24">
+    <div class="max-w-7xl mx-auto px-6 mb-10 flex justify-between items-end">
+      <div>
+        <h2 class="text-3xl font-display font-bold text-on-surface">Fresh Muffins</h2>
+        <p class="text-on-surface-variant mt-1">Warm, hearty, and perfect for your morning.</p>
+      </div>
+      <!-- Scroll Buttons -->
+      <div class="flex gap-2">
+        <button (click)="scroll(muffinsContainer, -380)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_left</span>
+        </button>
+        <button (click)="scroll(muffinsContainer, 380)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <div #muffinsContainer class="max-w-7xl mx-auto px-6 carousel-container hide-scrollbar flex overflow-x-auto gap-8 snap-x">
+      <!-- Muffin 1 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Banana Muffin"
+            [src]="contentService.muffinImages[0].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.muffinImages[0].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Freshly baked muffin made with real ripe bananas.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹25</span>
+          </div>
+        </div>
+      </div>
+      <!-- Muffin 2 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Vanilla Muffin"
+            [src]="contentService.muffinImages[1].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.muffinImages[1].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">A sweet, classic vanilla muffin perfect for any time.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹25</span>
+          </div>
+        </div>
+      </div>
+      <!-- Muffin 3 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Chocolate Muffin"
+            [src]="contentService.muffinImages[2].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.muffinImages[2].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Deep chocolate flavor baked into a soft, comforting
+            muffin.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹25</span>
+          </div>
+        </div>
+      </div>
+      <!-- Muffin 4 -->
+      <div class="min-w-[300px] md:min-w-[360px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64" alt="Carrot Muffin"
+            [src]="contentService.muffinImages[3].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.muffinImages[3].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Wholesome spiced carrot muffin to start your day right.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹25</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category: Brownies -->
+  <section id="brownies" class="mb-24 py-20 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6 mb-10 flex justify-between items-end">
+      <div>
+        <h2 class="text-3xl font-display font-bold text-on-surface">Brownies</h2>
+        <p class="text-on-surface-variant mt-1">Rich, fudgy, and intensely chocolatey.</p>
+      </div>
+      <!-- Scroll Buttons -->
+      <div class="flex gap-2">
+        <button (click)="scroll(browniesContainer, -340)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_left</span>
+        </button>
+        <button (click)="scroll(browniesContainer, 340)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <div #browniesContainer class="max-w-7xl mx-auto px-6 carousel-container hide-scrollbar flex overflow-x-auto gap-8 snap-x">
+      <!-- Brownie 1 -->
+      <div class="min-w-[280px] md:min-w-[320px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64"
+            alt="Classic Fudgy Brownie with a paper-thin top layer and gooey chocolate center"
+            [src]="contentService.brownieImages[0].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.brownieImages[0].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Intense Belgian chocolate with a crackly top.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹120</span>
+          </div>
+        </div>
+      </div>
+      <!-- Brownie 2 -->
+      <div class="min-w-[280px] md:min-w-[320px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64"
+            alt="Walnut Crunch brownie studded with toasted California walnuts"
+            [src]="contentService.brownieImages[1].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.brownieImages[1].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Signature brownie with toasted walnuts.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹140</span>
+          </div>
+        </div>
+      </div>
+      <!-- Brownie 3 -->
+      <div class="min-w-[280px] md:min-w-[320px] snap-start group">
+        <div class="bg-surface rounded-lg p-4 transition-all duration-500 hover:shadow-xl editorial-shadow">
+          <img class="w-full aspect-square object-cover rounded-md mb-6 h-64"
+            alt="Sea Salt Ganache brownie topped with thick dark chocolate ganache and sea salt flakes"
+            [src]="contentService.brownieImages[2].src">
+          <h3 class="text-lg font-headline font-bold text-on-surface">{{contentService.brownieImages[2].title}}</h3>
+          <p class="text-on-surface-variant text-sm mt-2 mb-6">Dark ganache and French fleur de sel.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">₹160</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category: Tres Leches -->
+  <section id="tres-leches" class="mb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
+      <div>
+        <h2 class="text-3xl font-display font-bold text-on-surface">Tres Leches</h2>
+        <p class="text-on-surface-variant mt-1">Our legendary three-milk soak. Pure comfort in every bite.</p>
+      </div>
+      <!-- Scroll Buttons -->
+      <div class="flex gap-2">
+        <button (click)="scroll(tresLechesContainer, -520)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_left</span>
+        </button>
+        <button (click)="scroll(tresLechesContainer, 520)" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/5 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <div #tresLechesContainer class="max-w-7xl mx-auto px-6 carousel-container hide-scrollbar flex overflow-x-auto gap-12 snap-x">
+      <!-- Tres Leches 1 -->
+      <div class="min-w-[400px] md:min-w-[500px] snap-start">
+        <div
+          class="flex flex-col md:flex-row bg-surface-container-lowest rounded-lg overflow-hidden editorial-shadow group">
+          <div class="w-full md:w-1/2 aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Original Milk Soak Tres Leches cake slice drenched in a creamy milk blend"
+              [src]="contentService.dessertImages[0].src">
+          </div>
+          <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-display font-bold text-on-surface leading-tight">
+                {{contentService.dessertImages[0].title}}</h3>
+              <span class="text-lg font-bold text-primary">₹250</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed text-sm mb-8">Light sponge drenched in our signature
+              three-milk blend, topped with fresh whipped cream.</p>
+            <button
+              class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all duration-300">Order
+              Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Tres Leches 2 -->
+      <div class="min-w-[400px] md:min-w-[500px] snap-start">
+        <div
+          class="flex flex-col md:flex-row bg-surface-container-lowest rounded-lg overflow-hidden editorial-shadow group">
+          <div class="w-full md:w-1/2 aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Saffron Pistachio Tres Leches cake infused with golden saffron"
+              [src]="contentService.dessertImages[1].src">
+          </div>
+          <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-display font-bold text-on-surface leading-tight">
+                {{contentService.dessertImages[1].title}}</h3>
+              <span class="text-lg font-bold text-primary">₹300</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed text-sm mb-8">Infused with premium saffron and topped with
+              crushed Iranian pistachios.</p>
+            <button
+              class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all duration-300">Order
+              Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category: Tiramisu -->
+  <section id="tiramisu" class="mb-32">
+    <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+      <h2 class="text-3xl font-display font-bold text-on-surface">Tiramisu</h2>
+      <div class="w-20 h-1 bg-tertiary mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Tiramisu 1 -->
+      <div class="group">
+        <div class="relative rounded-lg overflow-hidden aspect-[4/5] mb-6">
+          <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            alt="Classic Espresso Tiramisu with layers of coffee-soaked ladyfingers"
+            [src]="contentService.dessertImages[2].src">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <button
+              class="bg-surface text-primary w-full py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">Quick
+              Add</button>
+          </div>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-headline font-bold text-on-surface">{{contentService.dessertImages[2].title}}</h3>
+          <p class="text-primary font-bold mt-1">₹350</p>
+        </div>
+      </div>
+      <!-- Tiramisu 2 -->
+      <div class="group">
+        <div class="relative rounded-lg overflow-hidden aspect-[4/5] mb-6">
+          <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            alt="Lotus Biscoff Tiramisu topped with Biscoff drizzle and cookie garnish"
+            [src]="contentService.dessertImages[3].src">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <button
+              class="bg-surface text-primary w-full py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">Quick
+              Add</button>
+          </div>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-headline font-bold text-on-surface">{{contentService.dessertImages[3].title}}</h3>
+          <p class="text-primary font-bold mt-1">₹380</p>
+        </div>
+      </div>
+      <!-- Tiramisu 3 -->
+      <div class="group">
+        <div class="relative rounded-lg overflow-hidden aspect-[4/5] mb-6">
+          <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            alt="Berry Tiramisu featuring raspberries and mascarpone cream" [src]="contentService.dessertImages[4].src">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <button
+              class="bg-surface text-primary w-full py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">Quick
+              Add</button>
+          </div>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-headline font-bold text-on-surface">{{contentService.dessertImages[4].title}}</h3>
+          <p class="text-primary font-bold mt-1">₹320</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FAB for Cart (Contextual) -->
+<button
+  class="fixed bottom-8 right-8 bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform md:hidden z-50 animate-bounce">
+  <span class="material-symbols-outlined">shopping_cart</span>
+</button>

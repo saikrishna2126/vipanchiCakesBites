@@ -1,0 +1,16 @@
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.editorial-shadow {
+  box-shadow: 0 10px 40px -10px rgba(31, 27, 23, 0.05);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #8d4b00 0%, #b15f00 100%);
+}

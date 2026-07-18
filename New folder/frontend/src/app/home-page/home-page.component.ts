@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ContentService } from '../services/content.service';
 
 @Component({
   selector: 'home-page',
@@ -13,10 +14,12 @@ export class HomePageComponent {
     { name: 'Cakes', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80' }
   ];
 
-  activeIndex = 0;
+  activeIndex = signal(0);
+
+  constructor(public contentService: ContentService) { }
 
   scrollTo(index: number) {
-    this.activeIndex = index;
+    this.activeIndex.set(index);
     const container = document.querySelector('.creations-grid');
     const items = document.querySelectorAll('.creation-item');
     if (container && items[index]) {
@@ -42,6 +45,6 @@ export class HomePageComponent {
 
     // Find index where center matches
     // This is rough. Using scrollLeft / itemWidth is easier for snap points
-    this.activeIndex = Math.round(scrollLeft / itemWidth);
+    this.activeIndex.set(Math.round(scrollLeft / itemWidth));
   }
 }

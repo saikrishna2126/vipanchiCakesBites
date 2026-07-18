@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isMenuOpen = false;
+  isMenuOpen = signal(false);
+
+  constructor(public router: Router) { }
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen.update(open => !open);
+  }
+
+  isMenuPage(): boolean {
+    return this.router.url.split('#')[0].split('?')[0] === '/menu';
   }
 }

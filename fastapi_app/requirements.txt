@@ -1,8 +1,4 @@
 fastapi
+pydantic
 uvicorn[standard]
-httpx
-pytest
-pytest-asyncio
-# create a fast api application with angular integration, it should have endpoint to serve to take orders(cash inflows) and cash outflows(expenses)
- 
-
+mangum

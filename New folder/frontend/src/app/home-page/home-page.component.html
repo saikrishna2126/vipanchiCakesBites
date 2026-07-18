@@ -5,7 +5,7 @@
         class="max-w-screen-2xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-center lg:justify-between w-full my-auto h-full">
         <div class="lg:col-span-6 z-10 w-full mt-2 lg:mt-0">
             <span
-                class="text-tertiary font-semibold tracking-[0.2em] uppercase text-sm md:text-sm mb-4 lg:mb-6 block">Artisan
+                class="text-tertiary font-semibold tracking-[0.2em] uppercase text-sm md:text-sm mb-4 lg:mb-6 block">Vipanchi
                 Cakes &amp;
                 Bites</span>
             <h1
@@ -13,7 +13,7 @@
                 Crafted with <br />
                 <span class="text-primary italic font-light">Flour &amp; Soul</span>
             </h1>
-            <p class="text-base sm:text-base md:text-xl text-on-surface-variant max-w-md leading-relaxed mb-8 lg:mb-10">
+            <p class="text-lg sm:text-xl lg:text-xl text-on-surface-variant max-w-md leading-relaxed mb-8 lg:mb-10">
                 Exquisite tiered cakes and delicate handcrafted bites, created in small batches using the finest
                 ingredients for your most cherished moments.
             </p>
@@ -22,17 +22,17 @@
                     class="bg-glaze text-on-primary px-6 py-3 md:px-10 md:py-5 rounded-full font-semibold text-base md:text-lg hover:opacity-90 active:scale-95 transform transition-all shadow-xl shadow-primary/20">Shop
                     Today's Bites</button>
                 <button
-                    class="bg-surface-container-high text-on-surface px-6 py-3 md:px-10 md:py-5 rounded-full font-semibold text-base md:text-lg hover:bg-surface-container-highest transition-colors">Custom
+                    class="bg-surface-container-high text-on-surface px-6 py-3 md:px-10 md:py-5 rounded-full font-semibold text-base md:text-lg hover:bg-surface-container-highest transition-colors"
+                    routerLink="/enquiry">Custom
                     Inquiry</button>
             </div>
         </div>
         <div
             class="lg:col-span-6 relative flex justify-center lg:justify-end w-full h-auto max-h-[50vh] lg:max-h-none items-center">
-            <!-- Single Signature Image Focus -->
             <div
-                class="relative h-full max-h-[45vh] lg:max-h-none w-full max-w-xl aspect-[4/5] rounded-xl overflow-hidden shadow-2xl z-20 border-4 lg:border-8 border-background transform rotate-2 mx-auto lg:mx-0">
+                class="relative h-full max-h-[40vh] lg:max-h-none w-4/5 sm:w-2/3 md:w-1/2 lg:w-full lg:max-w-xl aspect-[4/5] rounded-xl overflow-hidden shadow-2xl z-20 border-4 lg:border-8 border-background transform rotate-2 mx-auto lg:mx-0">
                 <img alt="Exquisite tiered chocolate cake decorated with fresh berries and gold leaf"
-                    class="w-full h-full object-cover" src="assets/cake.jpeg" />
+                    class="w-full h-full object-cover" [src]="contentService.homeImages[0].src" />
             </div>
             <!-- Decorative Elements -->
             <div class="absolute -bottom-4 -right-4 w-32 h-32 lg:w-64 lg:h-64 bg-tertiary/10 rounded-full blur-3xl">
@@ -46,14 +46,15 @@
     <div class="max-w-screen-2xl mx-auto w-full">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-20 gap-4 md:gap-8">
             <div class="max-w-2xl">
-                <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6">Our Hand-Picked <br />Collections
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6">Our Hand-Picked <br />Collections
                 </h2>
-                <p class="text-on-surface-variant text-sm md:text-lg">From celebration centerpieces to morning
+                <p class="text-on-surface-variant text-base md:text-lg lg:text-xl">From celebration centerpieces to
+                    morning
                     indulgences, every
                     bite is a testament to quality and craft.</p>
             </div>
             <a class="text-primary font-bold flex items-center gap-2 group border-b-2 border-primary pb-1 text-sm md:text-base"
-                href="#">
+                routerLink="/menu">
                 View Full Menu
                 <span
                     class="material-symbols-outlined text-sm md:text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -61,27 +62,28 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
             <!-- Signature Cakes -->
-            <div class="group cursor-pointer">
+            <div class="group cursor-pointer" routerLink="/menu">
                 <div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-2 md:mb-8 bg-surface-container-highest">
                     <img alt="Minimalist vanilla sponge cake with smooth white buttercream"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="assets/Engagement cake.jpeg" />
+                        [src]="contentService.homeImages[1].src" />
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 md:p-8">
                         <span class="text-white font-medium flex items-center gap-1 md:gap-2 text-xs md:text-base">View
                             Cakes <span class="material-symbols-outlined text-xs md:text-base">north_east</span></span>
                     </div>
                 </div>
-                <h3 class="text-sm md:text-2xl font-bold mb-0.5 md:mb-2">Signature Cakes</h3>
-                <p class="text-on-surface-variant italic text-[10px] md:text-base">From Heirloom Carrot to Velvet Berry
+                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-0.5 md:mb-2">
+                    {{contentService.homeImages[1].title}}</h3>
+                <p class="text-on-surface-variant italic text-sm md:text-base">{{contentService.homeImages[1].subtitle}}
                 </p>
             </div>
             <!-- Fudgy Brownies -->
-            <div class="group cursor-pointer">
+            <div class="group cursor-pointer" routerLink="/menu">
                 <div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-2 md:mb-8 bg-surface-container-highest">
                     <img alt="Decadent chocolate brownies with swirled tops"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="assets/brownies.jpeg" />
+                        [src]="contentService.homeImages[2].src" />
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 md:p-8">
                         <span class="text-white font-medium flex items-center gap-1 md:gap-2 text-xs md:text-base">View
@@ -89,17 +91,18 @@
                                 class="material-symbols-outlined text-xs md:text-base">north_east</span></span>
                     </div>
                 </div>
-                <h3 class="text-sm md:text-2xl font-bold mb-0.5 md:mb-2">Fudgy Brownies</h3>
-                <p class="text-on-surface-variant italic text-[10px] md:text-base">Intense Belgian Chocolate Indulgence
+                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-0.5 md:mb-2">
+                    {{contentService.homeImages[2].title}}</h3>
+                <p class="text-on-surface-variant italic text-sm md:text-base">{{contentService.homeImages[2].subtitle}}
                 </p>
             </div>
             <!-- Gourmet Cupcakes -->
-            <div class="group cursor-pointer col-span-2 md:col-span-1">
+            <div class="group cursor-pointer col-span-2 md:col-span-1" routerLink="/menu">
                 <div
                     class="relative aspect-[3/2] md:aspect-[3/4] rounded-lg overflow-hidden mb-2 md:mb-8 bg-surface-container-highest">
                     <img alt="Gourmet cupcakes with pastel frosting swirls"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="assets/cupckes_edited.jpeg" />
+                        [src]="contentService.homeImages[3].src" />
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 md:p-8">
                         <span class="text-white font-medium flex items-center gap-1 md:gap-2 text-xs md:text-base">View
@@ -107,8 +110,9 @@
                                 class="material-symbols-outlined text-xs md:text-base">north_east</span></span>
                     </div>
                 </div>
-                <h3 class="text-sm md:text-2xl font-bold mb-0.5 md:mb-2">Signature Cupcakes</h3>
-                <p class="text-on-surface-variant italic text-[10px] md:text-base">Hand-Piped Cream &amp; Velvet Crumb
+                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-0.5 md:mb-2">
+                    {{contentService.homeImages[3].title}}</h3>
+                <p class="text-on-surface-variant italic text-sm md:text-base">{{contentService.homeImages[3].subtitle}}
                 </p>
             </div>
         </div>
@@ -118,9 +122,10 @@
 <section class="py-12 md:py-32 px-4 md:px-8 bg-background">
     <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-8 md:gap-20 items-center">
         <div class="lg:w-1/2 relative w-full flex justify-center lg:block">
-            <div class="rounded-xl overflow-hidden aspect-video shadow-2xl w-[85%] lg:w-full">
+            <div
+                class="rounded-xl overflow-hidden aspect-video shadow-2xl w-4/5 sm:w-2/3 md:w-1/2 lg:w-full mx-auto lg:mx-0">
                 <img alt="Baker decorating a delicate pastry with precision" class="w-full h-full object-cover"
-                    src="assets/art_perfect_bite.png" />
+                    [src]="contentService.homeImages[4].src" />
             </div>
             <div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-lg shadow-xl max-w-xs hidden md:block z-10">
                 <span class="text-tertiary font-bold text-4xl block mb-2">100%</span>
@@ -129,7 +134,7 @@
             </div>
         </div>
         <div class="lg:w-1/2 w-full lg:pl-4 mt-2 lg:mt-0">
-            <h2 class="text-[26px] md:text-5xl font-bold mb-6 md:mb-10 leading-tight">The Art of the <span
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-10 leading-tight">The Art of the <span
                     class="text-secondary">Perfect Bite</span></h2>
             <div class="space-y-6 md:space-y-12">
                 <div class="flex gap-4 md:gap-6">
@@ -138,8 +143,9 @@
                         <span class="material-symbols-outlined text-primary text-base md:text-2xl">potted_plant</span>
                     </div>
                     <div>
-                        <h4 class="text-sm md:text-xl font-bold mb-1 md:mb-2 text-on-surface">Premium Sourcing</h4>
-                        <p class="text-[11px] md:text-base text-on-surface-variant leading-relaxed">We use high-quality
+                        <h4 class="text-lg md:text-xl lg:text-2xl font-bold mb-1 md:mb-2 text-on-surface">Premium
+                            Sourcing</h4>
+                        <p class="text-sm md:text-base text-on-surface-variant leading-relaxed">We use high-quality
                             chocolates and authentic homemade recipes, ensuring every layer of your cake has depth and
                             clarity of flavor.</p>
                     </div>
@@ -150,8 +156,9 @@
                         <span class="material-symbols-outlined text-secondary text-base md:text-2xl">palette</span>
                     </div>
                     <div>
-                        <h4 class="text-sm md:text-xl font-bold mb-1 md:mb-2 text-on-surface">Artisan Decoration</h4>
-                        <p class="text-[11px] md:text-base text-on-surface-variant leading-relaxed">Every petal is
+                        <h4 class="text-lg md:text-xl lg:text-2xl font-bold mb-1 md:mb-2 text-on-surface">Artisan
+                            Decoration</h4>
+                        <p class="text-sm md:text-base text-on-surface-variant leading-relaxed">Every petal is
                             hand-piped and every garnish is placed with care. We believe a dessert should look as divine
                             as it tastes.</p>
                     </div>
@@ -162,8 +169,9 @@
                         <span class="material-symbols-outlined text-tertiary text-base md:text-2xl">celebration</span>
                     </div>
                     <div>
-                        <h4 class="text-sm md:text-xl font-bold mb-1 md:mb-2 text-on-surface">Bespoke Celebrations</h4>
-                        <p class="text-[11px] md:text-base text-on-surface-variant leading-relaxed">From weddings to
+                        <h4 class="text-lg md:text-xl lg:text-2xl font-bold mb-1 md:mb-2 text-on-surface">Bespoke
+                            Celebrations</h4>
+                        <p class="text-sm md:text-base text-on-surface-variant leading-relaxed">From weddings to
                             birthdays, our customized approach means your dessert is a reflection of your unique story.
                         </p>
                     </div>
@@ -176,38 +184,38 @@
 <section class="py-8 md:py-32 px-4 md:px-8 overflow-hidden">
     <div class="max-w-screen-2xl mx-auto">
         <div class="text-center mb-6 md:mb-16">
-            <h2 class="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Follow the Journey</h2>
-            <p class="text-on-surface-variant text-sm md:text-base">Sweet moments from our studio @bitesbyvipanchi</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2 md:mb-4">Follow the Journey</h2>
+            <p class="text-on-surface-variant text-base md:text-lg">Sweet moments from our studio @bitesbyvipanchi</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             <div class="aspect-square rounded-lg overflow-hidden relative group">
                 <img alt="Pastel cupcakes"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    src="assets/cupckes_edited.jpeg" />
+                    [src]="contentService.galleryImages[0].src" />
                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div class="aspect-square rounded-lg overflow-hidden relative group translate-y-8">
                 <img alt="Honey over waffles"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    src="assets/Engagement cake.jpeg" />
+                    [src]="contentService.galleryImages[1].src" />
                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div class="aspect-square rounded-lg overflow-hidden relative group">
                 <img alt="Baker dusting chocolate tart"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    src="assets/art_perfect_bite.png" />
+                    [src]="contentService.galleryImages[2].src" />
                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div class="aspect-square rounded-lg overflow-hidden relative group translate-y-8">
                 <img alt="Fudgy brownies"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    src="assets/brownies.jpeg" />
+                    [src]="contentService.galleryImages[3].src" />
                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div class="aspect-square rounded-lg overflow-hidden relative group hidden lg:block">
                 <img alt="Cake decorating scene"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    src="assets/cake.jpeg" />
+                    [src]="contentService.galleryImages[4].src" />
                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
         </div>
@@ -218,17 +226,19 @@
     <div
         class="max-w-4xl mx-auto bg-primary text-on-primary rounded-2xl md:rounded-[3rem] p-6 md:p-16 lg:p-24 text-center relative overflow-hidden shadow-2xl">
         <div class="relative z-10">
-            <h2 class="text-2xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-8 leading-tight">Celebrate Every Moment
+            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-8 leading-tight">Celebrate Every Moment
             </h2>
-            <p class="text-sm md:text-xl mb-6 md:mb-12 text-primary-fixed max-w-xl mx-auto opacity-90 font-light">
+            <p
+                class="text-base md:text-lg lg:text-xl mb-6 md:mb-12 text-primary-fixed max-w-xl mx-auto opacity-90 font-light">
                 Pre-order your signature
                 celebration cake or enquire about custom treats for your next gathering.</p>
             <div class="flex flex-row justify-center gap-3 md:gap-6">
                 <button
-                    class="bg-surface-container-lowest text-primary px-4 py-2 md:px-10 md:py-5 rounded-full font-bold text-xs md:text-lg hover:shadow-lg transition-all active:scale-95">Pre-order
+                    class="bg-surface-container-lowest text-primary px-4 py-2 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-base lg:text-lg hover:shadow-lg transition-all active:scale-95">Pre-order
                     Cakes</button>
                 <button
-                    class="border-2 border-primary-fixed-dim text-on-primary px-4 py-2 md:px-10 md:py-5 rounded-full font-bold text-xs md:text-lg hover:bg-white/10 transition-all">Custom
+                    class="border-2 border-primary-fixed-dim text-on-primary px-4 py-2 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-base lg:text-lg hover:bg-white/10 transition-all"
+                    routerLink="/enquiry">Custom
                     Enquiry</button>
             </div>
         </div>
@@ -241,21 +251,3 @@
         </div>
     </div>
 </section>
-<!-- Footer Shell -->
-<footer class="bg-[#fcf2eb] dark:bg-stone-950 w-full rounded-none">
-    <div
-        class="flex flex-col md:flex-row md:justify-between items-center text-center md:text-left px-4 md:px-12 py-6 md:py-16 w-full gap-3 md:gap-8">
-        <div class="font-['Plus_Jakarta_Sans'] font-bold text-base md:text-lg text-[#8d4b00]">Vipanchi Bakes</div>
-        <div
-            class="flex flex-nowrap justify-center gap-3 md:gap-8 font-['Be_Vietnam_Pro'] text-[10px] md:text-xs uppercase tracking-wider md:tracking-widest">
-            <a class="text-[#554336] dark:text-stone-500 hover:text-[#b40b56] transition-colors duration-200 whitespace-nowrap"
-                href="#">Instagram @bitesbyvipanchi</a>
-            <a class="text-[#554336] dark:text-stone-500 hover:text-[#b40b56] transition-colors duration-200 whitespace-nowrap"
-                href="#">Privacy Policy</a>
-        </div>
-        <div
-            class="text-[#895033] dark:text-stone-300 font-['Be_Vietnam_Pro'] text-[10px] md:text-xs uppercase tracking-wider md:tracking-widest opacity-90">
-            © 2024 Vipanchi Bakes. Handcrafted with Flour &amp; Heart.
-        </div>
-    </div>
-</footer>

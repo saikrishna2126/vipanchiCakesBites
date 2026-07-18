@@ -1,74 +1,402 @@
-<div class="admin-container">
+<div class="flex h-screen bg-stone-50 font-sans text-stone-800 overflow-hidden">
 
-  <!-- HEADER -->
-  <!-- <header class="admin-header">
-    <div class="header-content">
-      <img src="assets/logo.png" class="logo" />
+  <!-- Sidebar (Desktop) -->
+  <aside class="w-64 bg-stone-50 border-r border-stone-200 flex-col hidden md:flex h-full">
+    <div class="p-6">
+      <h1 class="text-2xl font-bold text-[#8C521C] tracking-tight">Vipanchi Bakes</h1>
+      <p class="text-xs text-stone-500 font-medium mt-1">Admin Console</p>
+    </div>
 
-      <div class="title-section">
-        <h1>Vipanchi Bakery Admin</h1>
-        <p class="tagline">Manage cash inflows (orders) and outflows (expenses)</p>
+    <nav class="flex-1 px-4 mt-6 space-y-2">
+      <a href="#"
+        class="flex items-center gap-3 px-4 py-3 bg-[#f5d0b5] text-[#8C521C] rounded-lg font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">edit_document</span>
+        <span class="text-sm">Content Management</span>
+      </a>
+      <a href="#"
+        class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 rounded-lg font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">inventory_2</span>
+        <span class="text-sm">Inventory</span>
+      </a>
+      <a href="#"
+        class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 rounded-lg font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">shopping_cart</span>
+        <span class="text-sm">Orders</span>
+      </a>
+      <a href="#"
+        class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 rounded-lg font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">bar_chart</span>
+        <span class="text-sm">Analytics</span>
+      </a>
+      <a href="#"
+        class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 rounded-lg font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">help_center</span>
+        <span class="text-sm">Customer Support</span>
+      </a>
+    </nav>
+
+    <div class="p-4 border-t border-stone-200 space-y-2">
+      <a href="#" class="flex items-center gap-3 px-4 py-2 text-stone-600 hover:text-stone-900 transition-colors">
+        <span class="material-symbols-outlined text-sm">help</span>
+        <span class="text-sm font-medium">Help</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-2 text-stone-600 hover:text-stone-900 transition-colors">
+        <span class="material-symbols-outlined text-sm">logout</span>
+        <span class="text-sm font-medium">Sign Out</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col h-full overflow-hidden">
+
+    <!-- Topbar -->
+    <header class="h-16 flex items-center justify-between px-6 bg-white border-b border-stone-200 shrink-0">
+      <div class="flex items-center bg-stone-100 px-3 py-1.5 rounded-md w-72">
+        <span class="material-symbols-outlined text-stone-400 text-lg mr-2">search</span>
+        <input type="text" placeholder="Search content..."
+          class="bg-transparent border-none outline-none text-sm w-full text-stone-600 placeholder-stone-400">
       </div>
 
-      <nav class="header-nav">
-        <a class="nav-link active">Dashboard</a>
-        <a class="nav-link">Expenses</a>
-        <a class="nav-link order-btn">Orders</a>
-      </nav>
-    </div>
-  </header> -->
+      <div class="flex items-center gap-5 text-stone-500">
+        <button class="hover:text-[#8C521C] transition-colors"><span
+            class="material-symbols-outlined">notifications</span></button>
+        <button class="hover:text-[#8C521C] transition-colors"><span
+            class="material-symbols-outlined">settings</span></button>
+        <div class="w-8 h-8 rounded-full bg-stone-300 overflow-hidden border border-stone-200">
+          <img src="https://ui-avatars.com/api/?name=Admin&background=f5d0b5&color=8C521C" alt="Admin"
+            class="w-full h-full object-cover">
+        </div>
+      </div>
+    </header>
 
-  <!-- MAIN -->
-  <main class="admin-main">
-    <div class="content-grid">
+    <!-- Main Content Area -->
+    <div class="flex-1 p-4 md:p-6 flex flex-col overflow-hidden">
 
-      <!-- ORDERS -->
-      <section class="form-section">
-        <h2>Orders (Cash Inflows)</h2>
+      <div class="mb-4 shrink-0">
+        <h2 class="text-2xl font-bold text-[#8C521C]">Content & Communications</h2>
+        <p class="text-stone-500 text-xs mt-0.5">Manage your digital storefront and customer touchpoints.</p>
+      </div>
 
-        <form #orderForm="ngForm" (ngSubmit)="createOrder(orderForm)">
-          <label>Item Name*</label>
-          <input type="text" name="item" ngModel required />
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 flex-1 min-h-0 overflow-hidden">
 
-          <label>Amount*</label>
-          <input type="number" name="amount" ngModel required />
+        <!-- Left Column -->
+        <div class="xl:col-span-7 flex flex-col gap-4 overflow-y-auto pr-1 h-full">
 
-          <label>Description</label>
-          <input type="text" name="desc" ngModel />
+          <!-- Card 1: Home Page & Global Content -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4 shrink-0">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base">
+                <span class="material-symbols-outlined">public</span>
+                <h3>Home Page & Global Content</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <button (click)="resetDefaults()"
+                  class="border border-stone-200 hover:bg-stone-50 text-stone-600 px-3 py-1.5 rounded-md text-xs font-medium transition-colors">
+                  Reset Defaults
+                </button>
+                <button (click)="publishChanges()"
+                  class="bg-[#8C521C] hover:bg-[#6e4015] text-white px-4 py-1.5 rounded-md text-xs font-medium transition-colors shadow-sm">
+                  Publish Changes
+                </button>
+              </div>
+            </div>
 
-          <button class="btn btn-order" [disabled]="orderForm.invalid">
-            + ADD ORDER
-          </button>
-        </form>
-      </section>
+            <div class="space-y-3">
+              <ng-container *ngFor="let img of homeImages">
+                <!-- Large Image format -->
+                <div *ngIf="img.isLarge"
+                  class="border rounded-lg p-2.5 flex flex-col sm:flex-row gap-4 items-center transition-all cursor-pointer"
+                  [ngClass]="selectedItem() === img ? 'border-[#8C521C] bg-[#fdfaf7] shadow-sm' : 'border-dashed border-stone-300 hover:bg-stone-50'"
+                  (click)="selectPreview(img)">
+                  <div class="relative w-32 h-20 rounded-md overflow-hidden bg-stone-200 shrink-0 group">
+                    <img [src]="img.src" [alt]="img.title" class="w-full h-full object-cover opacity-80">
+                    <div
+                      class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span
+                        class="material-symbols-outlined text-white text-lg drop-shadow-md scale-95 group-hover:scale-110 transition-transform">upload</span>
+                    </div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-bold text-stone-800 text-sm truncate">{{img.title}}</h4>
+                    <p class="text-stone-500 text-[11px] mt-0.5 leading-snug">{{img.subtitle}}</p>
+                  </div>
+                </div>
 
-      <!-- EXPENSES -->
-      <section class="form-section">
-        <h2>Expenses (Cash Outflows)</h2>
+                <!-- Small Image format -->
+                <div *ngIf="!img.isLarge"
+                  class="border rounded-lg p-2 flex items-center gap-3 transition-all cursor-pointer"
+                  [ngClass]="selectedItem() === img ? 'border-[#8C521C] bg-[#fdfaf7] shadow-sm' : 'border-dashed border-stone-300 hover:bg-stone-50'"
+                  (click)="selectPreview(img)">
+                  <div class="relative w-16 h-16 rounded-md overflow-hidden bg-stone-200 shrink-0 group">
+                    <img *ngIf="img.src" [src]="img.src" [alt]="img.title"
+                      class="w-full h-full object-cover opacity-80">
+                    <div
+                      class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span
+                        class="material-symbols-outlined text-white text-base drop-shadow-md scale-95 group-hover:scale-110 transition-transform">add_a_photo</span>
+                    </div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h5 class="font-bold text-stone-800 text-xs truncate">{{img.title}}</h5>
+                    <p *ngIf="img.subtitle" class="text-stone-400 text-[10px] mt-0.5">{{img.subtitle}}</p>
+                  </div>
+                </div>
+              </ng-container>
 
-        <form #expenseForm="ngForm" (ngSubmit)="createExpense(expenseForm)">
-          <label>Item Name*</label>
-          <input type="text" name="item" ngModel required />
+              <!-- Gallery Images Special Row -->
+              <div
+                class="border border-dashed border-stone-300 rounded-lg p-2 flex items-center gap-3 hover:bg-stone-50 transition-colors cursor-pointer">
+                <div class="flex gap-2 shrink-0">
+                  <div *ngFor="let g of galleryImages"
+                    class="relative w-10 h-10 rounded overflow-hidden bg-stone-200 group cursor-pointer border-2 transition-all"
+                    [ngClass]="selectedItem() === g ? 'border-[#8C521C] scale-105' : 'border-transparent'"
+                    (click)="selectPreview(g, 'Gallery')">
+                    <img *ngIf="g.src" [src]="g.src" [alt]="g.title" class="w-full h-full object-cover opacity-80">
+                    <div
+                      class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span
+                        class="material-symbols-outlined text-white text-xs drop-shadow-md scale-95 group-hover:scale-110 transition-transform">add</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0 ml-2 hidden sm:block">
+                  <h5 class="font-bold text-stone-800 text-xs truncate">Gallery Images</h5>
+                  <p class="text-stone-400 text-[9px] mt-0.5">5 items</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <label>Amount*</label>
-          <input type="number" name="amount" ngModel required />
+          <!-- Card 2: Cupcakes -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4 shrink-0">
+            <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base mb-3">
+              <span class="material-symbols-outlined">cake</span>
+              <h3>Menu - Cupcakes</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div *ngFor="let img of cupcakeImages" class="border rounded-lg p-2 transition-all cursor-pointer"
+                [ngClass]="selectedItem() === img ? 'border-[#8C521C] bg-[#fdfaf7] shadow-sm' : 'border-dashed border-stone-300 hover:bg-stone-50'"
+                (click)="selectPreview(img, 'Cupcake')">
+                <div class="relative w-full h-20 rounded-md overflow-hidden bg-stone-200 mb-2 group">
+                  <img [src]="img.src" [alt]="img.title" class="w-full h-full object-cover opacity-80">
+                  <div
+                    class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span
+                      class="material-symbols-outlined text-white text-lg drop-shadow-md scale-95 group-hover:scale-110 transition-transform">add_a_photo</span>
+                  </div>
+                </div>
+                <h5 class="font-bold text-stone-800 text-xs truncate">{{img.title}}</h5>
+              </div>
+            </div>
+          </div>
 
-          <label>Description</label>
-          <input type="text" name="desc" ngModel />
+          <!-- Card 3: Muffins -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4 shrink-0">
+            <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base mb-3">
+              <span class="material-symbols-outlined">bakery_dining</span>
+              <h3>Menu - Muffins</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div *ngFor="let img of muffinImages" class="border rounded-lg p-2 transition-all cursor-pointer"
+                [ngClass]="selectedItem() === img ? 'border-[#8C521C] bg-[#fdfaf7] shadow-sm' : 'border-dashed border-stone-300 hover:bg-stone-50'"
+                (click)="selectPreview(img, 'Muffin')">
+                <div class="relative w-full h-20 rounded-md overflow-hidden bg-stone-200 mb-2 group">
+                  <img [src]="img.src" [alt]="img.title" class="w-full h-full object-cover opacity-80">
+                  <div
+                    class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span
+                      class="material-symbols-outlined text-white text-lg drop-shadow-md scale-95 group-hover:scale-110 transition-transform">add_a_photo</span>
+                  </div>
+                </div>
+                <h5 class="font-bold text-stone-800 text-xs truncate">{{img.title}}</h5>
+              </div>
+            </div>
+          </div>
 
-          <button class="btn btn-expense" [disabled]="expenseForm.invalid">
-            + ADD EXPENSE
-          </button>
-        </form>
-      </section>
+          <!-- Card 4: Brownies -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4 shrink-0">
+            <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base mb-3">
+              <span class="material-symbols-outlined">cookie</span>
+              <h3>Menu - Brownies</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div *ngFor="let img of brownieImages" class="border rounded-lg p-2 transition-all cursor-pointer"
+                [ngClass]="selectedItem() === img ? 'border-[#8C521C] bg-[#fdfaf7] shadow-sm' : 'border-dashed border-stone-300 hover:bg-stone-50'"
+                (click)="selectPreview(img, 'Brownie')">
+                <div class="relative w-full h-20 rounded-md overflow-hidden bg-stone-200 mb-2 group">
+                  <img [src]="img.src" [alt]="img.title" class="w-full h-full object-cover opacity-80">
+                  <div
+                    class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span
+                      class="material-symbols-outlined text-white text-lg drop-shadow-md scale-95 group-hover:scale-110 transition-transform">add_a_photo</span>
+                  </div>
+                </div>
+                <h5 class="font-bold text-stone-800 text-xs truncate">{{img.title}}</h5>
+              </div>
+            </div>
+          </div>
 
+          <!-- Card 5: Tiramisu & Tres Leches -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4 shrink-0">
+            <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base mb-3">
+              <span class="material-symbols-outlined">icecream</span>
+              <h3>Menu - Desserts</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div *ngFor="let img of dessertImages" class="border rounded-lg p-2 transition-all cursor-pointer"
+                [ngClass]="selectedItem() === img ? 'border-[#8C521C] bg-[#fdfaf7] shadow-sm' : 'border-dashed border-stone-300 hover:bg-stone-50'"
+                (click)="selectPreview(img, 'Dessert')">
+                <div class="relative w-full h-20 rounded-md overflow-hidden bg-stone-200 mb-2 group">
+                  <img [src]="img.src" [alt]="img.title" class="w-full h-full object-cover opacity-80">
+                  <div
+                    class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span
+                      class="material-symbols-outlined text-white text-lg drop-shadow-md scale-95 group-hover:scale-110 transition-transform">add_a_photo</span>
+                  </div>
+                </div>
+                <h5 class="font-bold text-stone-800 text-xs truncate">{{img.title}}</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compose Customer Email Card -->
+          <div class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4">
+            <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base mb-3">
+              <span class="material-symbols-outlined">mail</span>
+              <h3>Compose Customer Email</h3>
+            </div>
+
+            <div class="mb-3">
+              <label class="block text-[10px] font-bold text-stone-600 mb-1">Subject Line</label>
+              <input type="text" value="New Seasonal Delights: The Autumn Collection is here!"
+                class="w-full border border-stone-300 rounded-md px-3 py-1.5 text-stone-700 text-xs focus:outline-none focus:ring-1 focus:ring-[#8C521C] focus:border-[#8C521C]">
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold text-stone-600 mb-1">Email Content</label>
+              <div class="border border-stone-300 rounded-md overflow-hidden flex flex-col">
+                <div class="bg-stone-50 border-b border-stone-200 px-2.5 py-1 flex items-center gap-3 text-stone-600">
+                  <button class="hover:text-stone-900 transition-colors"><span
+                      class="material-symbols-outlined text-[16px]">format_bold</span></button>
+                  <button class="hover:text-stone-900 transition-colors"><span
+                      class="material-symbols-outlined text-[16px]">format_italic</span></button>
+                  <button class="hover:text-stone-900 transition-colors"><span
+                      class="material-symbols-outlined text-[16px]">format_list_bulleted</span></button>
+                  <button class="hover:text-stone-900 transition-colors"><span
+                      class="material-symbols-outlined text-[16px]">link</span></button>
+                  <button class="hover:text-stone-900 transition-colors"><span
+                      class="material-symbols-outlined text-[16px]">image</span></button>
+                </div>
+                <textarea rows="3"
+                  class="w-full p-2.5 text-xs text-stone-700 focus:outline-none resize-none">Dear valued customers,
+
+We are thrilled to announce our new Autumn Seasonal Menu at Vipanchi Bakes. From Spiced Pumpkin Cupcakes to our signature Salted Caramel Brownies, we've captured the essence of the season in every bite.</textarea>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column -->
+        <div class="xl:col-span-5 flex flex-col gap-4 overflow-y-auto pr-1 h-full">
+
+          <!-- Live Preview Card -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 overflow-hidden flex flex-col shrink-0">
+            <div class="px-4 py-2.5 flex items-center justify-between border-b border-stone-100 shrink-0">
+              <h3 class="text-[10px] font-bold text-stone-500 tracking-wider uppercase font-sans">Live Preview</h3>
+              <span
+                class="flex items-center gap-1.5 text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                <div class="w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></div> Live
+              </span>
+            </div>
+            <div class="relative w-full bg-stone-900 shrink-0">
+              <img [src]="selectedPreview()?.src" alt="Preview"
+                class="w-full h-auto object-contain opacity-90 mx-auto max-h-[300px]">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-6 pointer-events-none">
+                <h2 class="text-white font-bold text-lg sm:text-xl mb-2 leading-tight drop-shadow-md">
+                  {{selectedPreview()?.title}}</h2>
+                <div>
+                  <button
+                    class="bg-[#8C521C] text-white text-xs font-bold px-5 py-2 rounded-sm shadow-md transition-transform hover:scale-105">Shop
+                    Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action & Detail Editing Panel -->
+            <div class="p-4 bg-stone-50 border-t border-stone-100 space-y-4 shrink-0">
+              <div class="flex flex-col gap-3">
+                <button (click)="fileInput.click()"
+                  class="bg-[#8C521C] hover:bg-[#6e4015] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow active:scale-[0.98]">
+                  <span class="material-symbols-outlined text-sm">upload</span>
+                  Upload New Image
+                </button>
+                <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" class="hidden">
+              </div>
+
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-500 mb-1 uppercase tracking-wider">Image Label /
+                    Title</label>
+                  <input type="text" *ngIf="selectedItem()" [(ngModel)]="selectedItem()!.title"
+                    (ngModelChange)="onTitleChange($event)"
+                    class="w-full border border-stone-200 rounded-md px-3 py-2 text-stone-700 text-xs focus:outline-none focus:ring-1 focus:ring-[#8C521C] focus:border-[#8C521C] bg-white transition-all shadow-sm">
+                </div>
+                <div *ngIf="selectedItem() && selectedItem()!.hasOwnProperty('subtitle')">
+                  <label class="block text-[10px] font-bold text-stone-500 mb-1 uppercase tracking-wider">Subtitle /
+                    Dimensions</label>
+                  <input type="text" [(ngModel)]="selectedItem().subtitle"
+                    class="w-full border border-stone-200 rounded-md px-3 py-2 text-stone-700 text-xs focus:outline-none focus:ring-1 focus:ring-[#8C521C] focus:border-[#8C521C] bg-white transition-all shadow-sm">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Broadcasts Card -->
+          <div
+            class="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-stone-100 p-4 flex flex-col overflow-hidden shrink-0">
+            <div class="flex items-center gap-2 text-[#8C521C] font-semibold text-base mb-3 shrink-0">
+              <span class="material-symbols-outlined">history</span>
+              <h3>Recent Broadcasts</h3>
+            </div>
+
+            <div class="space-y-2 overflow-y-auto flex-1 pr-1">
+              <!-- Broadcast Item -->
+              <div *ngFor="let item of recentBroadcasts"
+                class="border border-stone-100 rounded-lg p-2.5 flex flex-col sm:flex-row justify-between gap-2 hover:shadow-sm transition-shadow">
+                <div>
+                  <h4 class="font-bold text-stone-800 text-xs mb-0.5 truncate max-w-[200px] sm:max-w-[280px]">
+                    {{item.title}}</h4>
+                  <p class="text-stone-500 text-[10px]">{{item.details}}</p>
+                </div>
+                <div
+                  class="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-1 shrink-0">
+                  <span class="text-[9px] text-stone-400 font-medium whitespace-nowrap">{{item.time}}</span>
+                  <span
+                    class="text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap {{item.statusClass}}">{{item.status}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="admin-footer">
-    © 2023 Vipanchi Bakery. All rights reserved.
-    <span class="support">Support</span>
-  </footer>
-
+  <!-- Toast Notification -->
+  <div *ngIf="showToast"
+    class="fixed bottom-5 right-5 bg-stone-900 text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-2.5 z-50 transition-all duration-300">
+    <span class="material-symbols-outlined text-green-400">check_circle</span>
+    <span class="text-xs font-semibold tracking-wide font-sans">{{toastMessage}}</span>
+  </div>
 </div>

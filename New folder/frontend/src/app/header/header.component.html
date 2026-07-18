@@ -1,17 +1,49 @@
 <!-- TopNavBar Navigation Shell -->
-<nav class="fixed top-0 w-full z-50 bg-[#fff8f5]/70 dark:bg-stone-900/70 backdrop-blur-md">
+<nav class="fixed top-0 w-full z-50 bg-background/70 dark:bg-stone-900/70 backdrop-blur-md">
     <div class="flex justify-between items-center px-4 md:px-8 py-4 md:py-6 max-w-screen-2xl mx-auto">
-        <div class="text-2xl md:text-4xl font-bold tracking-tighter text-[#8d4b00] dark:text-amber-600">Vipanchi Bakes
+        <div class="text-2xl md:text-4xl font-bold tracking-tighter text-primary dark:text-amber-600 cursor-pointer font-headline"
+            routerLink="/">Vipanchi Cakes
+            & Bites
         </div>
         <div
-            class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-base md:text-lg">
-            <a class="text-[#8d4b00] dark:text-amber-500 font-bold border-b-2 border-[#8d4b00] pb-1" href="#">Cakes</a>
-            <a class="text-[#554336] dark:text-stone-400 hover:text-[#8d4b00] transition-colors" href="#">Cupcakes</a>
-            <a class="text-[#554336] dark:text-stone-400 hover:text-[#8d4b00] transition-colors" href="#">Brownies</a>
-            <a class="text-[#554336] dark:text-stone-400 hover:text-[#8d4b00] transition-colors" href="#">Custom
-                Orders</a>
-            <a class="text-[#554336] dark:text-stone-400 hover:text-[#8d4b00] transition-colors" href="#">Our Story</a>
-            <a class="text-[#554336] dark:text-stone-400 hover:text-[#8d4b00] transition-colors" href="#">Contact</a>
+            class="hidden lg:flex items-center space-x-8 font-headline font-medium tracking-tight text-base lg:text-lg">
+            <!-- Non-Menu Page Navigation -->
+            <ng-container *ngIf="!isMenuPage()">
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/"
+                    routerLinkActive="text-primary dark:text-amber-500 font-bold border-b-2 border-primary pb-1"
+                    [routerLinkActiveOptions]="{exact: true}">Home</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/menu"
+                    routerLinkActive="text-primary dark:text-amber-500 font-bold border-b-2 border-primary pb-1">Menu</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/enquiry"
+                    routerLinkActive="text-primary dark:text-amber-500 font-bold border-b-2 border-primary pb-1">Custom
+                    Orders</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors" href="#">Our
+                    Story</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/enquiry"
+                    routerLinkActive="text-primary dark:text-amber-500 font-bold border-b-2 border-primary pb-1">Contact</a>
+            </ng-container>
+
+            <!-- Menu Page Navigation -->
+            <ng-container *ngIf="isMenuPage()">
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/">Home</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/menu" fragment="cupcakes">Cupcakes</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/menu" fragment="muffins">Muffins</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/menu" fragment="brownies">Brownies</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/menu" fragment="tres-leches">Tres Leches</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/menu" fragment="tiramisu">Tiramisu</a>
+                <a class="text-on-surface-variant dark:text-stone-400 hover:text-primary transition-colors"
+                    routerLink="/enquiry">Custom Orders</a>
+            </ng-container>
         </div>
         <div class="flex items-center gap-6">
             <div class="hidden lg:flex items-center bg-surface-container-high px-4 py-2 rounded-full">
@@ -23,7 +55,54 @@
             <div class="flex items-center gap-4 text-amber-800">
                 <button class="scale-95 active:scale-90 transition-transform hover:opacity-80"><span
                         class="material-symbols-outlined">shopping_bag</span></button>
+                <button
+                    class="lg:hidden scale-95 active:scale-90 transition-transform hover:opacity-80 flex items-center justify-center"
+                    (click)="toggleMenu()">
+                    <span class="material-symbols-outlined">{{ isMenuOpen() ? 'close' : 'menu' }}</span>
+                </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div *ngIf="isMenuOpen()"
+        class="lg:hidden absolute top-full left-0 w-full bg-background/95 dark:bg-stone-900/95 backdrop-blur-xl border-t border-surface-variant/20 shadow-xl pb-6">
+        <div class="flex flex-col px-6 py-4 space-y-4 font-headline text-lg">
+            <!-- Non-Menu Page Navigation -->
+            <ng-container *ngIf="!isMenuPage()">
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/" routerLinkActive="text-primary dark:text-amber-500 font-bold"
+                    [routerLinkActiveOptions]="{exact: true}" (click)="toggleMenu()">Home</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/menu" routerLinkActive="text-primary dark:text-amber-500 font-bold"
+                    (click)="toggleMenu()">Menu</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/enquiry" routerLinkActive="text-primary dark:text-amber-500 font-bold"
+                    (click)="toggleMenu()">Custom Orders</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    href="#" (click)="toggleMenu()">Our Story</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/enquiry" routerLinkActive="text-primary dark:text-amber-500 font-bold"
+                    (click)="toggleMenu()">Contact</a>
+            </ng-container>
+
+            <!-- Menu Page Navigation -->
+            <ng-container *ngIf="isMenuPage()">
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/" (click)="toggleMenu()">Home</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/menu" fragment="cupcakes" (click)="toggleMenu()">Cupcakes</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/menu" fragment="muffins" (click)="toggleMenu()">Muffins</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/menu" fragment="brownies" (click)="toggleMenu()">Brownies</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/menu" fragment="tres-leches" (click)="toggleMenu()">Tres Leches</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/menu" fragment="tiramisu" (click)="toggleMenu()">Tiramisu</a>
+                <a class="block text-on-surface-variant dark:text-stone-300 hover:text-primary transition-colors py-2"
+                    routerLink="/enquiry" (click)="toggleMenu()">Custom Orders</a>
+            </ng-container>
         </div>
     </div>
 </nav>
